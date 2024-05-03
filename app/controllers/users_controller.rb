@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < LoggedController
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
@@ -65,6 +65,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email, :phone, :passaword, :born_at)
+      params.require(:user).permit(:name, :email, :phone, :password_digest, :born_at)
     end
 end
