@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   validates :password_digest, presence: { on: :create }, length: { minimum: 8, allow_blank: true }
 
+  has_many :clients
+
   def self.auth(email, password)
     user = User.where(email: email).first
     user && user.authenticate(password) ? user : nil
