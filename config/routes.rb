@@ -8,4 +8,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :sessions, only: %i(new create destroy)
+  get "autenticar" => "sessions#new"
+  post "autenticar" => "sessions#create"
+  delete "sair" => "sessions#destroy"
+
+  root to: "sessions#new", as: "login"
+
+  get "/signup", to: "users#new", as: "signup"
 end
