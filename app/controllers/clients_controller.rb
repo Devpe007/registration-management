@@ -3,7 +3,7 @@ class ClientsController < LoggedController
 
   # GET /clients or /clients.json
   def index
-    @clients = Client.all
+    @clients = current_user.clients.paginate(page: params[:page], per_page: 1)
   end
 
   # GET /clients/1 or /clients/1.json
