@@ -1,5 +1,3 @@
-<p style="color: green"><%= notice %></p>
-
 <div class="bg-secondary" >
   <h1 class="text-light" >Clientes</h1>
 </div>
@@ -25,6 +23,13 @@
   </tbody>
 </table>
 
-<%= link_to "Novo cliente", new_client_path, class: "btn btn-outline-success" %>
+<div class="d-flex justify-content-between">
+  <section>
+    <%= link_to "Novo cliente", new_client_path, class: "btn btn-outline-success" %>
 
-<%= link_to "Voltar", dashboard_path, class: "btn btn-outline-primary" %>
+    <%= link_to "Voltar", dashboard_path, class: "btn btn-outline-primary" %>
+  </section>
+
+  <%= will_paginate @clients, list_classes: %w(pagination justify-content-end) %>
+</div>
+

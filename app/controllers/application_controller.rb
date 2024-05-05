@@ -17,6 +17,12 @@ class ApplicationController < ActionController::Base
     redirect_to login_path
   end
 
+  def current_user
+    return unless session[:id]
+
+    @current_user ||= User.find(session[:id])
+  end
+
   def logged?
     raise NotAuthenticated unless session[:id]
   end
