@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def not_authenticated
     flash[:notice] = "Você precisa se autenticar no sistema"
 
-    redirect_to sessions_path
+    redirect_to login_path
   end
 
   def logged?

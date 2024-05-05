@@ -1,14 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Clients</h1>
-
-<div id="clients">
-  <% @clients.each do |client| %>
-    <%= render client %>
-    <p>
-      <%= link_to "Show this client", client %>
-    </p>
-  <% end %>
+<div class="bg-secondary" >
+  <h1 class="text-light" >Clientes</h1>
 </div>
 
-<%= link_to "New client", new_client_path %>
+<table class="table table-light">
+  <tr>
+    <th scope="col">Nome</th>
+    <th scope="col">Email</th>
+    <th scope="col">Telefone</th>
+    <th scope="col">Endereço</th>
+    <th scope="col">Opções</th>
+  </tr>
+  <tbody>
+    <% @clients.each do |client| %>
+      <tr>
+        <td> <%= client.name %> </td>
+        <td> <%= client.email %> </td>
+        <td> <%= client.phone %> </td>
+        <td> <%= client.address %> </td>
+        <td> <%= link_to "Editar", edit_client_path(client) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Novo cliente", new_client_path, class: "btn btn-outline-success" %>
+
+<%= link_to "Voltar", dashboard_path, class: "btn btn-outline-primary" %>
