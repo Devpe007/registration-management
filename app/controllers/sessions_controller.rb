@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     flash[:notice] = "Olá, #{@user.name}"
 
-    redirect_to users_path
+    redirect_to dashboard_path
   end
 
   def destroy
