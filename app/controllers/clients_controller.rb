@@ -19,6 +19,13 @@ class ClientsController < LoggedController
   def edit
   end
 
+  def show_orders
+    id = params[:id]
+
+    @client = Client.find_by(id: id)
+    @orders = Order.where(client_id: id)
+  end
+
   # POST /clients or /clients.json
   def create
     @client = Client.new(client_params)
