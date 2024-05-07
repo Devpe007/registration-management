@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :products
   resources :clients
+  get "client/show_orders", to: "clients#show_orders", as: "show_orders"
+
   resources :users
 
   get "up" => "rails/health#show", as: :rails_health_check

@@ -1,0 +1,26 @@
+<div class="bg-secondary" >
+  <h1 class="text-light" >Pedidos de <%= @client.name %></h1>
+</div>
+
+<table class="table table-light" >
+  <thead>
+    <tr>
+      <th>Nº do Pedido</th>
+      <th>Valor</th>
+      <th>Data</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td>#<%= order.id %></td>
+        <td>R$ 900,00</td>
+        <td><%= order.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= link_to "Detalhes", edit_order_path(order) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Voltar", clients_path, class: "btn btn-outline-primary" %>
