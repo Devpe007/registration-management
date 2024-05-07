@@ -17,7 +17,6 @@ export default class extends Controller {
       title: "Tem certeza?",
       showCancelButton: true,
       confirmButtonText: "Salvar",
-      icon: "question",
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Salvo com sucesso!", "", "success").then((result) => {

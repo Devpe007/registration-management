@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :orders
+  get "order/add_product", to: "orders#add_product", as: "add_product"
+
   resources :products
   resources :clients
   resources :users

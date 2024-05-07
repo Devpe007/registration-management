@@ -1,0 +1,29 @@
+<div class="bg-secondary" >
+  <h1 class="text-light" >Pedidos</h1>
+</div>
+
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th scope="col">Nº Pedido</th>
+      <th scope="col">Cliente</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Data</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td>#<%= order.id %></td>
+        <td><%= order.client_name %></td>
+        <td>R$ 900,00</td>
+        <td>23/04/2024</td>
+        <td><%= link_to "Detalhes", edit_order_path(order) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Novo pedido", new_order_path, class: "btn btn-outline-success" %>
+<%= link_to "Voltar", dashboard_path, class: "btn btn-outline-primary" %>
