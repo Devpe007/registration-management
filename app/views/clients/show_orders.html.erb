@@ -15,7 +15,7 @@
     <% @orders.each do |order| %>
       <tr>
         <td>#<%= order.id %></td>
-        <td>R$ 900,00</td>
+        <td>R$ <%= order.order_value %> </td>
         <td><%= order.created_at.strftime("%d/%m/%Y") %></td>
         <td><%= link_to "Detalhes", edit_order_path(order) %></td>
       </tr>

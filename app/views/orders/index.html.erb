@@ -17,7 +17,7 @@
       <tr>
         <td>#<%= order.id %></td>
         <td><%= order.client_name %></td>
-        <td>R$ 900,00</td>
+        <td> <%= order.order_value %> </td>
         <td>23/04/2024</td>
         <td><%= link_to "Detalhes", edit_order_path(order) %></td>
       </tr>
