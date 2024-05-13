@@ -20,6 +20,7 @@
         <td> <%= order.order_value %> </td>
         <td>23/04/2024</td>
         <td><%= link_to "Detalhes", edit_order_path(order) %></td>
+        <td><%= button_to "Excluir", order, method: :delete, data: { controller: 'sweetalert', action: 'click->sweetalert#deleteConfirmation', item_name: 'Pedido' } %></td>
       </tr>
     <% end %>
   </tbody>
