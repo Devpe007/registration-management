@@ -31,4 +31,39 @@ export default class extends Controller {
       }
     });
   }
+
+  deleteConfirmation(event) {
+    if(this.redirect) return;
+
+    event.stopImmediatePropagation();
+    event.preventDefault();
+
+    const item = this.element.getAttribute('data-item-name');
+
+    const message = item === 'Classe' || item === 'Matéria' ? `${item} deletada com sucesso!` : `${item} deletado com sucesso!`;
+
+    Swal.fire({
+      title: "Você tem certeza?",
+      text: "Você não poderá reverter isso!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Sim, deletar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deletado!",
+          text: message,
+          icon: "success"
+        }).then((result) => {
+          if(result.isConfirmed) {
+            this.redirect = true;
+            this.element.click();
+          };
+        });
+      }
+    });
+  };
 }

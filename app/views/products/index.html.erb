@@ -17,7 +17,8 @@
         <td><%= product.name %></td>
         <td><%= product.price %></td>
         <td><%= product.quantity %></td>
-        <td><%= link_to "Editar", edit_product_path(product) %></td>
+        <td><%= link_to "Editar", edit_product_path(product) %> </td>
+        <td><%= button_to "Excluir", product, method: :delete, data: { controller: 'sweetalert', action: 'click->sweetalert#deleteConfirmation', item_name: 'Produto' } %></td>
       </tr>
     <% end %>
   </tbody>

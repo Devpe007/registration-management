@@ -18,6 +18,7 @@
         <td> <%= client.phone %> </td>
         <td> <%= client.address %> </td>
         <td> <%= link_to "Editar", edit_client_path(client) %> | <%= link_to "Detalhes", show_orders_path(id: client.id) %> </td>
+        <td> <%= button_to "Excluir", client, method: :delete, data: { controller: 'sweetalert', action: 'click->sweetalert#deleteConfirmation', item_name: 'Cliente' } %> </td>
       </tr>
     <% end %>
   </tbody>
